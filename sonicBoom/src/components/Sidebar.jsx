@@ -15,7 +15,7 @@ const getCategoryLabel = (category) => {
   return category.charAt(0).toUpperCase();
 };
 
-function Sidebar({ activeCategory, onCategoryChange }) {
+function Sidebar({ activeCategory, onCategoryChange, activeLibraryItem, onLibraryChange }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
@@ -25,7 +25,7 @@ function Sidebar({ activeCategory, onCategoryChange }) {
       {!isMobileOpen && (
         <button
           onClick={() => setIsMobileOpen(true)}
-          className="md:hidden fixed top-4 left-4 z-50 p-2 hover:bg-gray-100 rounded-lg transition"
+          className="md:hidden fixed top-2 left-4 z-50 p-2 hover:bg-gray-100 rounded-lg transition"
           title="Open Menu"
         >
           <ChevronRight size={24} className="text-gray-900" />
@@ -151,22 +151,42 @@ function Sidebar({ activeCategory, onCategoryChange }) {
             Library
           </p>
         )}
-        <ul className="space-y-1">
+        <ul className={`${isCollapsed ? "flex flex-col gap-4" : "space-y-1"}`}>
           {[
             { icon: <Music2 size={18} />, label: "All Songs" },
-            { icon: <Heart size={18} />, label: "Favourites" },
+            { icon: <Heart size={18} />, label: "Favorites" },
             { icon: <Clock size={18} />, label: "Recently Played" },
           ].map((item) => (
             <li
               key={item.label}
+              onClick={() => {
+                onLibraryChange(item.label);
+                setIsMobileOpen(false);
+              }}
               title={item.label}
-              className={`flex items-center gap-3 rounded-xl cursor-pointer text-sm font-medium text-gray-600 hover:bg-gray-100 transition-all duration-200
-                ${isCollapsed
-                  ? "justify-center px-1 py-1"
-                  : "px-3 py-2.5"
+              className={`group rounded-xl cursor-pointer transition-all duration-200 ${
+                isCollapsed
+                  ? "flex justify-center"
+                  : "flex items-center gap-3 px-3 py-2.5 text-sm font-medium"
+              }
+                ${activeLibraryItem === item.label
+                  ? isCollapsed
+                    ? ""
+                    : "bg-black text-white"
+                  : isCollapsed
+                  ? ""
+                  : "text-gray-600 hover:bg-gray-100"
                 }`}
             >
-              {item.icon}
+              <span className={`flex items-center justify-center transition-all duration-200 ${
+                activeLibraryItem === item.label && isCollapsed
+                  ? "w-10 h-10 bg-black rounded-xl text-white flex items-center justify-center"
+                  : isCollapsed
+                  ? "w-10 h-10 bg-gray-100 text-gray-700 rounded-xl flex items-center justify-center group-hover:bg-gray-200 group-hover:text-black"
+                  : ""
+              }`}>
+                {item.icon}
+              </span>
               {!isCollapsed && item.label}
             </li>
           ))}
@@ -175,7 +195,7 @@ function Sidebar({ activeCategory, onCategoryChange }) {
 
       {/* Bottom User */}
       {!isCollapsed && (
-        <div className="mt-auto px-5 pt-6 pb-8 border-t border-gray-100">
+        <div className="mt-auto px-6 pt-6 pb-8 border-t border-gray-100">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-sm">
               👤
@@ -189,8 +209,8 @@ function Sidebar({ activeCategory, onCategoryChange }) {
       )}
 
       {isCollapsed && (
-        <div className="mt-auto pb-8 flex justify-center">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-blue-200 rounded-2xl flex items-center justify-center text-base hover:shadow-md transition-shadow duration-200">
+        <div className="mt-auto pt-3 pb-8 flex justify-center border-t border-gray-100">
+          <div className="w-10 h-10 bg-linear-to-br from-purple-200 to-blue-200 rounded-2xl flex items-center justify-center text-base hover:shadow-md transition-shadow duration-200">
             👤
           </div>
         </div>

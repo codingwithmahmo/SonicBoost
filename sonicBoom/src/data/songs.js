@@ -8,7 +8,7 @@ const songs = [
     genre: "Pop",
     duration: "3:20",
     cover: "https://picsum.photos/seed/song1/200",
-    src: "",
+    src: "/audio/song-1.mp3",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const songs = [
     genre: "Hip-Hop",
     duration: "2:57",
     cover: "https://picsum.photos/seed/song2/200",
-    src: "",
+    src: "/audio/song-2.mp3",
   },
   {
     id: 3,
@@ -28,7 +28,7 @@ const songs = [
     genre: "Pop",
     duration: "3:23",
     cover: "https://picsum.photos/seed/song3/200",
-    src: "",
+    src: "/audio/song-3.mp3",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const songs = [
     genre: "Rock",
     duration: "5:55",
     cover: "https://picsum.photos/seed/song4/200",
-    src: "",
+    src: "/audio/song-4.mp3",
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const songs = [
     genre: "Pop",
     duration: "3:53",
     cover: "https://picsum.photos/seed/song5/200",
-    src: "",
+    src: "/audio/song-5.mp3",
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const songs = [
     genre: "Hip-Hop",
     duration: "3:18",
     cover: "https://picsum.photos/seed/song6/200",
-    src: "",
+    src: "/audio/song-6.mp3",
   },
   {
     id: 7,
@@ -68,7 +68,7 @@ const songs = [
     genre: "Soul",
     duration: "4:45",
     cover: "https://picsum.photos/seed/song7/200",
-    src: "",
+    src: "/audio/song-7.mp3",
   },
   {
     id: 8,
@@ -78,7 +78,7 @@ const songs = [
     genre: "Rock",
     duration: "5:01",
     cover: "https://picsum.photos/seed/song8/200",
-    src: "",
+    src: "/audio/song-8.mp3",
   },
 
   // ─── Hindi ─────────────────────────────────────────────
@@ -90,7 +90,7 @@ const songs = [
     genre: "Bollywood",
     duration: "4:28",
     cover: "https://picsum.photos/seed/song9/200",
-    src: "",
+    src: "/audio/song-9.mp3",
   },
   {
     id: 10,
@@ -100,7 +100,7 @@ const songs = [
     genre: "Bollywood",
     duration: "4:22",
     cover: "https://picsum.photos/seed/song10/200",
-    src: "",
+    src: "/audio/song-10.mp3",
   },
   {
     id: 11,
@@ -110,7 +110,7 @@ const songs = [
     genre: "Bollywood",
     duration: "5:42",
     cover: "https://picsum.photos/seed/song11/200",
-    src: "",
+    src: "/audio/song-11.mp3",
   },
   {
     id: 12,
@@ -120,7 +120,7 @@ const songs = [
     genre: "Bollywood",
     duration: "5:30",
     cover: "https://picsum.photos/seed/song12/200",
-    src: "",
+    src: "/audio/song-12.mp3",
   },
   {
     id: 13,
@@ -130,7 +130,7 @@ const songs = [
     genre: "Bollywood",
     duration: "4:10",
     cover: "https://picsum.photos/seed/song13/200",
-    src: "",
+    src: "/audio/song-13.mp3",
   },
   {
     id: 14,
@@ -140,7 +140,7 @@ const songs = [
     genre: "Bollywood",
     duration: "3:52",
     cover: "https://picsum.photos/seed/song14/200",
-    src: "",
+    src: "/audio/song-14.mp3",
   },
   {
     id: 15,
@@ -150,7 +150,7 @@ const songs = [
     genre: "Bollywood",
     duration: "4:05",
     cover: "https://picsum.photos/seed/song15/200",
-    src: "",
+    src: "/audio/song-15.mp3",
   },
   {
     id: 16,
@@ -160,7 +160,7 @@ const songs = [
     genre: "Bollywood",
     duration: "3:47",
     cover: "https://picsum.photos/seed/song16/200",
-    src: "",
+    src: "/audio/song-16.mp3",
   },
 
   // ─── Urdu ──────────────────────────────────────────────
@@ -172,7 +172,7 @@ const songs = [
     genre: "Indie",
     duration: "3:57",
     cover: "https://picsum.photos/seed/song17/200",
-    src: "",
+    src: "/audio/song-17.mp3",
   },
   {
     id: 18,
@@ -182,7 +182,7 @@ const songs = [
     genre: "Pop",
     duration: "4:30",
     cover: "https://picsum.photos/seed/song18/200",
-    src: "",
+    src: "/audio/song-18.mp3",
   },
   {
     id: 19,
@@ -192,7 +192,7 @@ const songs = [
     genre: "Qawwali",
     duration: "6:15",
     cover: "https://picsum.photos/seed/song19/200",
-    src: "",
+    src: "/audio/song-19.mp3",
   },
   {
     id: 20,
@@ -202,7 +202,7 @@ const songs = [
     genre: "Pop",
     duration: "4:02",
     cover: "https://picsum.photos/seed/song20/200",
-    src: "",
+    src: "/audio/song-20.mp3",
   },
   {
     id: 21,
@@ -212,7 +212,7 @@ const songs = [
     genre: "Folk",
     duration: "4:18",
     cover: "https://picsum.photos/seed/song21/200",
-    src: "",
+    src: "/audio/song-21.mp3",
   },
   {
     id: 22,
@@ -222,7 +222,7 @@ const songs = [
     genre: "Pop",
     duration: "3:15",
     cover: "https://picsum.photos/seed/song22/200",
-    src: "",
+    src: "/audio/song-22.mp3",
   },
   {
     id: 23,
@@ -232,7 +232,7 @@ const songs = [
     genre: "Pop",
     duration: "3:44",
     cover: "https://picsum.photos/seed/song23/200",
-    src: "",
+    src: "/audio/song-23.mp3",
   },
   {
     id: 24,
@@ -242,7 +242,7 @@ const songs = [
     genre: "Rock",
     duration: "4:33",
     cover: "https://picsum.photos/seed/song24/200",
-    src: "",
+    src: "/audio/song-24.mp3",
   },
 
   // ─── Pashto ────────────────────────────────────────────
@@ -254,7 +254,7 @@ const songs = [
     genre: "Folk",
     duration: "4:10",
     cover: "https://picsum.photos/seed/song25/200",
-    src: "",
+    src: "/audio/song-25.mp3",
   },
   {
     id: 26,
@@ -264,7 +264,7 @@ const songs = [
     genre: "Classical",
     duration: "5:22",
     cover: "https://picsum.photos/seed/song26/200",
-    src: "",
+    src: "/audio/song-26.mp3",
   },
   {
     id: 27,
@@ -274,7 +274,7 @@ const songs = [
     genre: "Folk",
     duration: "3:55",
     cover: "https://picsum.photos/seed/song27/200",
-    src: "",
+    src: "/audio/song-27.mp3",
   },
   {
     id: 28,
@@ -284,7 +284,7 @@ const songs = [
     genre: "Folk",
     duration: "4:40",
     cover: "https://picsum.photos/seed/song28/200",
-    src: "",
+    src: "/audio/song-28.mp3",
   },
   {
     id: 29,
@@ -294,7 +294,7 @@ const songs = [
     genre: "Pop",
     duration: "3:30",
     cover: "https://picsum.photos/seed/song29/200",
-    src: "",
+    src: "/audio/song-29.mp3",
   },
   {
     id: 30,
@@ -304,7 +304,7 @@ const songs = [
     genre: "Romantic",
     duration: "4:15",
     cover: "https://picsum.photos/seed/song30/200",
-    src: "",
+    src: "/audio/song-30.mp3",
   },
   {
     id: 31,
@@ -314,7 +314,7 @@ const songs = [
     genre: "Folk",
     duration: "5:00",
     cover: "https://picsum.photos/seed/song31/200",
-    src: "",
+    src: "/audio/song-31.mp3",
   },
   {
     id: 32,
@@ -324,7 +324,7 @@ const songs = [
     genre: "Pop",
     duration: "3:48",
     cover: "https://picsum.photos/seed/song32/200",
-    src: "",
+    src: "/audio/song-32.mp3",
   },
 ];
 
