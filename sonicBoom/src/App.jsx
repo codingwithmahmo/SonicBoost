@@ -29,9 +29,9 @@ function App() {
       />
 
       {/* Main */}
-      <div className="flex flex-col flex-1 overflow-hidden transition-all duration-300">
+      <div className="flex flex-col flex-1 overflow-hidden transition-all duration-300 relative z-0">
         {/* Topbar */}
-        <div className="flex flex-col gap-4 px-4 md:px-8 py-4 md:py-6 border-b border-gray-100 bg-white sticky top-0 z-10 pt-16 md:pt-4">
+        <div className="flex flex-col gap-4 px-4 md:px-8 py-4 md:py-6 border-b border-gray-100 bg-white sticky top-0 z-30 pt-4 md:pt-4">
           <div className="flex items-center gap-3">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900">
               {activeCategory === "All" ? "All Songs" : `${activeCategory} Music`}

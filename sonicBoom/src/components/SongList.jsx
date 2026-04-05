@@ -13,7 +13,7 @@ function SongList({ songs, currentSong, onSongSelect }) {
   }
 
   return (
-    <div className="flex flex-col overflow-y-auto pb-32">
+    <div className="flex flex-col overflow-y-auto pb-32 relative z-0">
       {/* Header */}
       <div className="grid grid-cols-12 px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-widest border-b border-gray-100 sticky top-0 bg-white z-10">
         <span className="col-span-1 text-center">#</span>

@@ -11,6 +11,10 @@ const categoryIcons = {
   "Pashto": <Globe2 size={18} />,
 };
 
+const getCategoryLabel = (category) => {
+  return category.charAt(0).toUpperCase();
+};
+
 function Sidebar({ activeCategory, onCategoryChange }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -40,7 +44,7 @@ function Sidebar({ activeCategory, onCategoryChange }) {
       <div
         className={`fixed md:relative left-0 top-0 h-screen bg-white border-r border-gray-100 flex flex-col transition-all duration-300 z-40
           ${isCollapsed ? "md:w-20" : "md:w-64"}
-          ${isMobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+          ${isMobileOpen ? "translate-x-0 shadow-lg" : "-translate-x-full md:translate-x-0"}
           w-64`}
       >
         {/* Logo + Toggle */}
@@ -61,27 +65,29 @@ function Sidebar({ activeCategory, onCategoryChange }) {
           )}
 
           {/* Close on mobile, Collapse on desktop */}
-          <button
-            onClick={() => {
-              const isMd = window.innerWidth >= 768;
-              if (isMd) {
-                setIsCollapsed(!isCollapsed);
-              } else {
-                setIsMobileOpen(false);
-              }
-            }}
-            className="text-gray-400 hover:text-black transition-colors duration-150"
-            title={isMobileOpen ? "Close" : "Collapse"}
-          >
-            <ChevronLeft size={20} />
-          </button>
+          {!isCollapsed && (
+            <button
+              onClick={() => {
+                const isMd = window.innerWidth >= 768;
+                if (isMd) {
+                  setIsCollapsed(!isCollapsed);
+                } else {
+                  setIsMobileOpen(false);
+                }
+              }}
+              className="text-gray-400 hover:text-black transition-colors duration-150"
+              title={isMobileOpen ? "Close" : "Collapse"}
+            >
+              <ChevronLeft size={20} />
+            </button>
+          )}
         </div>
 
-        {/* Collapse toggle when collapsed - Desktop only */}
+        {/* Expand toggle when collapsed - Desktop only */}
         {isCollapsed && (
           <button
             onClick={() => setIsCollapsed(false)}
-            className="hidden md:flex mx-auto mb-6 text-gray-400 hover:text-black transition-colors duration-150"
+            className="hidden md:flex items-center justify-center w-12 h-12 mx-auto mb-6 bg-gradient-to-br from-gray-50 to-gray-100 hover:from-gray-100 hover:to-gray-200 rounded-2xl text-gray-600 hover:text-black transition-all duration-200 shadow-sm hover:shadow-md"
             title="Expand"
           >
             <ChevronRight size={20} />
@@ -104,15 +110,35 @@ function Sidebar({ activeCategory, onCategoryChange }) {
                 setIsMobileOpen(false);
               }}
               title={cat}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer text-sm font-medium transition-all duration-200
-                ${isCollapsed ? "justify-center" : ""}
+              className={`group relative flex items-center gap-3 rounded-xl cursor-pointer text-sm font-medium transition-all duration-200
+                ${isCollapsed
+                  ? "justify-center px-1 py-1"
+                  : "px-3 py-2.5"
+                }
                 ${activeCategory === cat
-                  ? "bg-black text-white"
+                  ? isCollapsed
+                    ? "text-black"
+                    : "bg-black text-white"
                   : "text-gray-600 hover:bg-gray-100"
                 }`}
             >
-              <span>{categoryIcons[cat]}</span>
+              <span className={`flex items-center justify-center transition-all duration-200 ${
+                activeCategory === cat && isCollapsed
+                  ? "w-9 h-9 bg-black rounded-lg text-white text-xs font-bold flex items-center justify-center"
+                  : isCollapsed
+                  ? "w-9 h-9 text-gray-600 group-hover:text-black"
+                  : ""
+              }`}>
+                {isCollapsed ? getCategoryLabel(cat) : categoryIcons[cat]}
+              </span>
               {!isCollapsed && cat}
+
+              {/* Tooltip for collapsed state */}
+              {isCollapsed && (
+                <div className="absolute left-12 bg-black text-white text-xs font-medium px-2 py-1 rounded-md whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+                  {cat}
+                </div>
+              )}
             </li>
           ))}
         </ul>
@@ -134,8 +160,11 @@ function Sidebar({ activeCategory, onCategoryChange }) {
             <li
               key={item.label}
               title={item.label}
-              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl cursor-pointer text-sm font-medium text-gray-600 hover:bg-gray-100 transition-all duration-200
-                ${isCollapsed ? "justify-center" : ""}`}
+              className={`flex items-center gap-3 rounded-xl cursor-pointer text-sm font-medium text-gray-600 hover:bg-gray-100 transition-all duration-200
+                ${isCollapsed
+                  ? "justify-center px-1 py-1"
+                  : "px-3 py-2.5"
+                }`}
             >
               {item.icon}
               {!isCollapsed && item.label}
@@ -161,7 +190,7 @@ function Sidebar({ activeCategory, onCategoryChange }) {
 
       {isCollapsed && (
         <div className="mt-auto pb-8 flex justify-center">
-          <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center text-sm">
+          <div className="w-10 h-10 bg-gradient-to-br from-purple-200 to-blue-200 rounded-2xl flex items-center justify-center text-base hover:shadow-md transition-shadow duration-200">
             👤
           </div>
         </div>
